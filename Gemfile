@@ -90,4 +90,4 @@ end
 
 gem 'active_model_serializers', '~> 0.10.13'
 
-gem "tailwindcss-rails", "~> 2.0"
+gem 'tailwindcss-rails', '~> 2.0'
