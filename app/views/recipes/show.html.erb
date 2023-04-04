@@ -17,10 +17,11 @@
     </label> 
   <% end %>  
   </div>  
-
-  <a href = <%= new_food_url %> class="flex self-end mr-20">
-    <button class='bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow'>Add Food</button>
-</a>
+  <% if @recipe.user == current_user %>
+    <a href = <%= new_food_url %> class="flex self-end mr-20">
+      <button class='bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow'>Add Food</button>
+    </a>
+  <% end %>
 
 <hr class="w-4/6 rounded-sm h-1 my-6 bg-gray-500" />
 
