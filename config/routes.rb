@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       patch :toggle_public
     end
   end
-
+  resources :foods
+  
   get '/', to: 'users#index'
   # Defines the root path route ("/")
   # root "articles#index"

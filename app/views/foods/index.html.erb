@@ -1,0 +1,23 @@
+<div class='wrapper'>
+<a href = <%= new_food_url %> >
+    <button class='btn-add-food'>Add Food</button>
+</a>
+    <table class='foods-table'>
+        <tr>
+            <th>Food</th>
+            <th>Measurement unit</th>
+            <th>Unit price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+        <% @foods.each do |food| %>
+        <tr>
+            <td> <%= food.name %> </td>
+            <td> <%= food.measurement_unit %> </td>
+            <td> <%= food.price %> </td>
+            <td> <%= food.quantity %> </td>
+            <td> Delete </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
