@@ -1,5 +1,5 @@
 <div class='add-food-form-wrapper'>
-    <%= form_with model :food, url: foods_url, class: 'form' do |form| %>
+    <%= form_with model: @food, url: foods_url, class: 'form' do |form| %>
 
     <div class='form-items'>
         <%= form.label :name %></br>
