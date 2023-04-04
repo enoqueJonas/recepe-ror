@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :destroy]
+  before_action :set_recipe, only: %i[show destroy]
 
   def index
     @recipes = Recipe.all
@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
     @recipe.user = current_user
 
     if @recipe.save
-      redirect_to recipes_path, notice: "Recipe was successfully created."
+      redirect_to recipes_path, notice: 'Recipe was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,9 +28,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if current_user == @recipe.user
       @recipe.destroy
-      redirect_to recipes_path, notice: "Recipe was successfully destroyed."
+      redirect_to recipes_path, notice: 'Recipe was successfully destroyed.'
     else
-      redirect_to recipes_path, notice: "You are not authorized to delete this recipe."
+      redirect_to recipes_path, notice: 'You are not authorized to delete this recipe.'
     end
   end
 
