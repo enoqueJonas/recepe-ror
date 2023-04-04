@@ -1,0 +1,10 @@
+<main class="container">
+  <div class="header">
+    <h1>Recipes</h1>
+    <%= link_to "New recipe",
+                new_recipe_path,
+                class: "recipeButton" %>
+  </div>
+
+  <%= render @recipes %>
+</main>

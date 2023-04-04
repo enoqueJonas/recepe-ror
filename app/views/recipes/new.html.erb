@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to recipes"), recipes_path %>
+
+  <div class="header">
+    <h1>New recipe</h1>
+  </div>
+
+  <%= render "form", recipe: @recipe %>
+</main>

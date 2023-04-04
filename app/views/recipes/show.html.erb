@@ -1,0 +1,13 @@
+<main class="container">
+  <div class="header">
+    <h1><%= @recipe.name %></h1>
+    <p><%= @recipe.description %></p>
+  </div>
+
+  <div class="details">
+    <p>Preparation time: <%= @recipe.preparation_time %> minutes</p>
+    <p>Cooking time: <%= @recipe.cooking_time %> minutes</p>
+  </div>
+
+  <%= button_to "Delete", recipe_path(@recipe), method: :delete, class: "btnDelete", data: { confirm: "Are you sure you want to delete this recipe?" } %>
+</main>
