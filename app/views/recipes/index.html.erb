@@ -1,0 +1,9 @@
+<main class="flex flex-col content-center items-center">
+  <div class="header">
+    <%= link_to "New recipe",
+                new_recipe_path,
+                class: "recipeButton" %>
+  </div>
+
+  <%= render @recipes %>
+</main>
