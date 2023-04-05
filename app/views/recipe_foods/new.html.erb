@@ -1,0 +1,12 @@
+<% if @foods %>
+  <% @foods.each do |food| %>
+    <div class="food-item">
+      <h3><%= food.name %></h3>
+      <%= form_with(model: [@recipe, @recipe_food], url: recipe_recipe_foods_path(@recipe)) do |form| %>
+        <%= form.hidden_field :food_id, value: food.id %>
+        <%= form.hidden_field :quantity, value: food.quantity %>
+        <%= form.submit "Add to recipe" %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

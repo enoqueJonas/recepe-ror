@@ -18,31 +18,35 @@
   <% end %>  
   </div>  
   <% if @recipe.user == current_user %>
-    <a href = <%= new_food_url %> class="flex self-end mr-20">
+    <a href = <%= new_recipe_recipe_food_path(@recipe.id) %> class="flex self-end mr-20">
       <button class='bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow'>Add Food</button>
     </a>
   <% end %>
 
 <hr class="w-4/6 rounded-sm h-1 my-6 bg-gray-500" />
 
-  <table class='w-5/6 mt-5 text-sm text-left text-gray-500 dark:text-gray-400'>
+<table class='w-3/6 mt-5 text-sm text-left text-gray-500 dark:text-gray-400'>
   <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-  <tr>
-    <th scope="col" class="px-6 py-3">Food</th>
-    <th scope="col" class="px-6 py-3">Measurement unit</th>
-    <th scope="col" class="px-6 py-3">Unit price</th>
-    <th scope="col" class="px-6 py-3">Quantity</th>
-    <th scope="col" class="px-6 py-3">Actions</th>
-  </tr>
-  </thead>
-  <% @foods.each do |food| %>
-    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-      <td class="px-6 py-4"> <%= food.name %> </td>
-      <td class="px-6 py-4"> <%= food.measurement_unit %> </td>
-      <td class="px-6 py-4"> <%= food.price %> </td>
-      <td class="px-6 py-4"> <%= food.quantity %> </td>
-      <td class="px-6 py-4"> Delete </td>
+    <tr>
+      <th scope="col" class="px-6 py-3">Name</th>
+      <th scope="col" class="px-6 py-3">Quantity</th>
+      <th scope="col" class="px-6 py-3">Value</th>
+      <th scope="col" class="px-6 py-3">Actions</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+        <td class="px-6 py-4"><%= recipe_food.food.name %></td>
+        <td class="px-6 py-4"><%= recipe_food.quantity %></td>
+        <td class="px-6 py-4"><%= recipe_food.food.price %></td>
+        <td class="px-6 py-4">
+          <p>Edit</p>
+          <p>Delete</p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
 </main>
