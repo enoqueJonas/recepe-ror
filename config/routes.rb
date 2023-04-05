@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :foods
   get 'general_shopping_list', to: 'general_shopping_list#index', as: 'general_shopping_list'
-  get '/', to: 'recipes#index'
+  get '/', to: 'users#index'
   # Defines the root path route ("/")
   # root "articles#index"
 end
