@@ -1,6 +1,5 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :recipe_foods
 
   def user_name
     user.name
@@ -8,4 +7,21 @@ class Recipe < ApplicationRecord
   
   has_many :recipe_foods, dependent: :destroy
   has_many :foods, through: :recipe_foods
+
+  def total_price
+    total = 0 
+    recipe_foods.each do |rf|
+      food = Food.find(rf.food_id)
+      total = total + (rf.quantity * food.price)
+    end
+    total
+  end
+
+  def total_quantity
+    qt = 0
+    recipe_foods.each do |rf|
+      qt += rf.quantity if rf.recipe_id == self.id
+    end
+    qt
+  end
 end
