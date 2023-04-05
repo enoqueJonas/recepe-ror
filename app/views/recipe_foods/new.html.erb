@@ -1,12 +1,14 @@
+<div class="flex flex-col gap-4 my-4 w-full items-center justify-items-center">
 <% if @foods %>
   <% @foods.each do |food| %>
-    <div class="food-item">
-      <h3><%= food.name %></h3>
+    <div class="grid justify-items-center grid-cols-2 w-5/6 m-2 p-2 bg-white rounded-lg shadow-lg w-3/4">
+      <h3 class="text-lg font-medium mb-2"><%= food.name %></h3>
       <%= form_with(model: [@recipe, @recipe_food], url: recipe_recipe_foods_path(@recipe)) do |form| %>
         <%= form.hidden_field :food_id, value: food.id %>
         <%= form.hidden_field :quantity, value: food.quantity %>
-        <%= form.submit "Add to recipe" %>
+        <%= form.submit "Add to recipe", class: "bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
       <% end %>
     </div>
   <% end %>
 <% end %>
+</div>
