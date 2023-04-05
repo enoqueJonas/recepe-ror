@@ -1,5 +1,4 @@
 class GeneralShoppingListController < ApplicationController
-
   def index
     @user = current_user
     @recipes = Recipe.where(user_id: @user.id)
@@ -10,7 +9,7 @@ class GeneralShoppingListController < ApplicationController
     @missing_foods.each do |food|
       @total_price += food.quantity.to_f * food.price.to_f
     end
-  
+
     @total_price = BigDecimal(@total_price, 2)
   end
 end
