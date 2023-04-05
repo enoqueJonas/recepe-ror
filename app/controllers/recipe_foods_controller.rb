@@ -1,7 +1,5 @@
 class RecipeFoodsController < ApplicationController
-  def index
-    recipe = Recipe.find(params[:recipe_id])
-  end
+  def index; end
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
