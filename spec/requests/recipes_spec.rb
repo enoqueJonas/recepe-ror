@@ -66,7 +66,7 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'DELETE #destroy' do
     let(:user) { FactoryBot.create(:user, email: 'test@example.com') }
-    let(:recipe) { FactoryBot.create(:recipe, user:) }
+    let(:recipe) { FactoryBot.create(:recipe, user: user) }
 
     context 'when the user is logged in and owns the recipe' do
       before { sign_in user }
