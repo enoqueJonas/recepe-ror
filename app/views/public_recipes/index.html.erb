@@ -1,0 +1,18 @@
+<div class='recipes-wrapper'>
+    <h1>Public Recipes</h1>
+    <ul>
+        <% @recipes.each do |recipe| %>
+        <li>
+            <div class='recipe-description'> 
+                <p> <%= recipe.name %> </p>
+                <p>By: <%= recipe.user_name %>
+            </div>
+
+            <div class='recipe-info'> 
+                <p>Total food items: <%= recipe.total_quantity %> </p>
+                <p>Total price: <%= recipe.total_price %>
+            </div>
+        </li>
+        <% end %>
+    </ul>
+</div>
