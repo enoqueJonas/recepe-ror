@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'RecipeFoods', type: :request do
   let(:user) { FactoryBot.create(:user, email: 'test@example.com') }
-  let(:food) { FactoryBot.create(:food, user:) }
-  let(:recipe) { FactoryBot.create(:recipe, user:) }
+  let(:food) { FactoryBot.create(:food, user: user) }
+  let(:recipe) { FactoryBot.create(:recipe, user: user) }
 
   describe 'GET #index' do
     it 'returns a success response' do

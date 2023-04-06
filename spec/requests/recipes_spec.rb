@@ -10,7 +10,7 @@ RSpec.describe 'Recipes', type: :request do
 
   describe 'GET #show' do
     let!(:user) { FactoryBot.create(:user) }
-    let!(:recipe) { FactoryBot.create(:recipe, user:) }
+    let!(:recipe) { FactoryBot.create(:recipe, user: user) }
 
     it 'returns a success response' do
       get recipe_path(recipe)
