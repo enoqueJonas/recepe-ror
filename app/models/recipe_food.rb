@@ -9,4 +9,6 @@ class RecipeFood < ApplicationRecord
   def total_price
     food.quantity * food.price
   end
+
+  validates :quantity, presence: true
 end
