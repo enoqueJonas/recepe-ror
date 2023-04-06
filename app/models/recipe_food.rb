@@ -5,4 +5,6 @@ class RecipeFood < ApplicationRecord
   def recipe_id
     recipe.id
   end
+
+  validates :quantity, presence: true
 end
