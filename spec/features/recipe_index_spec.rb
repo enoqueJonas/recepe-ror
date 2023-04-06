@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Recipes index page', type: :feature do
   let(:user) { FactoryBot.create(:user) }
-  let!(:recipe1) { FactoryBot.create(:recipe, name: 'Recipe 1', user:) }
-  let!(:recipe2) { FactoryBot.create(:recipe, name: 'Recipe 2', user:) }
+  let!(:recipe1) { FactoryBot.create(:recipe, name: 'Recipe 1', user: user) }
+  let!(:recipe2) { FactoryBot.create(:recipe, name: 'Recipe 2', user: user) }
 
   before do
     sign_in user

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Foods new page", type: :feature do
+RSpec.describe 'Foods new page', type: :feature do
   include Capybara::DSL
 
   let(:user) { FactoryBot.create(:user) }
