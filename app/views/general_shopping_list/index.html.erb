@@ -7,7 +7,7 @@
 <% total_quantity = 0 %>
 <% total_price = 0 %>
 
-<% current_user.recipes.each do |recipe| %>
+<% current_user.recipes.includes(recipe_foods: :food).each do |recipe| %>
   <% recipe.recipe_foods.each do |recipe_food| %>
     <% food = recipe_food.food %>
     <% if missing_foods[food.id].nil? %>
