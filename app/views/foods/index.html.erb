@@ -1,25 +1,29 @@
 <%= render 'shared/menu' %>
 
-<div class='wrapper'>
-<a href = <%= new_food_url %> >
-    <button class='btn-add-food'>Add Food</button>
-</a>
-    <table class='foods-table'>
-        <tr>
-            <th>Food</th>
-            <th>Measurement unit</th>
-            <th>Unit price</th>
-            <th>Quantity</th>
-            <th>Actions</th>
+<div class='flex flex-col content-center items-center m-5 p-2'>
+
+    <table class='w-3/6 mt-5 text-sm text-left text-gray-500 dark:text-gray-400'>
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">    
+    <tr>
+            <th scope="col" class="px-6 py-3">Food</th>
+            <th scope="col" class="px-6 py-3">Measurement unit</th>
+            <th scope="col" class="px-6 py-3">Unit price</th>
+            <th scope="col" class="px-6 py-3">Quantity</th>
+            <th scope="col" class="px-6 py-3">Actions</th>
         </tr>
+        </thead>
         <% @foods.each do |food| %>
-        <tr>
-            <td> <%= food.name %> </td>
-            <td> <%= food.measurement_unit %> </td>
-            <td> <%= food.price %> </td>
-            <td> <%= food.quantity %> </td>
-            <td> Delete </td>
+        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <td class="px-6 py-4"> <%= food.name %> </td>
+            <td class="px-6 py-4"> <%= food.measurement_unit %> </td>
+            <td class="px-6 py-4"> <%= food.price %> </td>
+            <td class="px-6 py-4"> <%= food.quantity %> </td>
+            <td class="px-6 py-4"> Delete </td>
         </tr>
         <% end %>
     </table>
+    
+    <a href = <%= new_food_url %> >
+        <button class="m-2 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow">Add Food</button>
+    </a>
 </div>

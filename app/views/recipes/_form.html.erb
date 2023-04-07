@@ -1,3 +1,4 @@
+<div class="flex justify-center">
 <%= form_with(model: recipe, local: true) do |form| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +12,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div>
+    <%= form.label :name, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.text_field :name, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
   
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :description, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.text_field :description, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
 
   <div class="field">
-    <%= form.label :preparation_time %>
-    <%= form.number_field :preparation_time %>
+    <%= form.label :preparation_time, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.number_field :preparation_time, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
 
   <div class="field">
-    <%= form.label :cooking_time %>
-    <%= form.number_field :cooking_time %>
+    <%= form.label :cooking_time, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.number_field :cooking_time, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
 
   <div class="field">
-    <%= form.label :public %>
+    <%= form.label :public, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
     <%= form.check_box :public %>
   </div>
 
-  <div class="actions">
+  <div class="bg-white hover:bg-gray-100 flex text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow" style="width: 37%;">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
