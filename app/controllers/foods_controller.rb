@@ -22,6 +22,16 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food = Food.find(params[:id])
+    if current_user == @food.user
+      @food.destroy
+      redirect_to recipes_path, notice: 'Food was successfully destroyed.'
+    else
+      redirect_to recipes_path, notice: 'You are not authorized to delete this food.'
+    end
+  end
+
   def params_provider
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
