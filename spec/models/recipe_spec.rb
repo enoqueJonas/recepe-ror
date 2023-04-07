@@ -9,7 +9,7 @@ RSpec.describe Recipe, type: :model do
       preparation_time: 10,
       cooking_time: 20,
       description: 'A test recipe',
-      user: user
+      user:
     )
   end
 

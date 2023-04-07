@@ -9,7 +9,7 @@ RSpec.describe Food, type: :model do
       measurement_unit: 'MyString',
       price: '9.99',
       quantity: '9.99',
-      user: user
+      user:
     )
   end
 

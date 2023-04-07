@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Food index page', type: :feature do
   let(:user) { FactoryBot.create(:user) }
-  let!(:food1) { FactoryBot.create(:food, name: 'Apple', user: user) }
-  let!(:food2) { FactoryBot.create(:food, name: 'Orange', user: user) }
+  let!(:food1) { FactoryBot.create(:food, name: 'Apple', user:) }
+  let!(:food2) { FactoryBot.create(:food, name: 'Orange', user:) }
 
   before do
     sign_in user

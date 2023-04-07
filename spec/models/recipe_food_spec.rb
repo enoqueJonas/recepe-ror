@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe RecipeFood, type: :model do
   let(:user) { FactoryBot.create(:user) }
-  let!(:recipe) { FactoryBot.create(:recipe, user: user) }
-  let(:food) { FactoryBot.create(:food, user: user) }
+  let!(:recipe) { FactoryBot.create(:recipe, user:) }
+  let(:food) { FactoryBot.create(:food, user:) }
 
   subject do
     described_class.new(
