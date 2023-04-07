@@ -24,4 +24,6 @@ class Recipe < ApplicationRecord
     end
     qt
   end
+
+  validates :name, :preparation_time, :cooking_time, :description, presence: true
 end

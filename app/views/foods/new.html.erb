@@ -1,29 +1,29 @@
 <%= render 'shared/menu' %>
 
-<div class='add-food-form-wrapper'>
-    <%= form_with model: @food, url: foods_url, class: 'form' do |form| %>
+<div class='flex flex-col justify-center content-center items-center'>
+    <%= form_with model: @food, url: foods_url, class: 'flex flex-col w-3/6' do |form| %>
 
     <div class='form-items'>
-        <%= form.label :name %></br>
-        <%= form.text_field :name %>
+        <%= form.label :name, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %></br>
+        <%= form.text_field :name, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
     </div>
 
     <div class='form-items'>
-        <%= form.label :measurement_unit %></br>
-        <%= form.text_field :measurement_unit %>
+        <%= form.label :measurement_unit, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %></br>
+        <%= form.text_field :measurement_unit, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
     </div>
 
     <div class='form-items'>
-        <%= form.label :price %></br>
-        <%= form.text_field :price %>
+        <%= form.label :price, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %></br>
+        <%= form.text_field :price, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
     </div>
 
     <div class='form-items'>
-        <%= form.label :quantity%></br>
-        <%= form.text_field :quantity%>
+        <%= form.label :quantity, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %></br>
+        <%= form.text_field :quantity, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
     </div>
 
-    <div class="btn-submit">
+    <div class="m-2 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow" style="width: 70px;">
         <%= form.submit value="Submit" %>
     </div>
     <% end %>
