@@ -1,0 +1,11 @@
+<main class="flex flex-col justify-center content-center items-center">
+<%= render 'shared/menu' %>
+  <div class="header">
+    <h1 class="text-4xl font-extrabold dark:text-white m-5">New recipe</h1>
+  </div>
+
+  <%= render "form", recipe: @recipe %>
+  <div class="m-2">
+  <%= link_to sanitize("&larr; Back to recipes"), recipes_path %>
+  </div>
+</main>

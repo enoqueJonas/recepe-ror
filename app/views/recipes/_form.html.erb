@@ -1,0 +1,44 @@
+<div class="flex justify-center">
+<%= form_with(model: recipe, local: true) do |form| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.text_field :name, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :description, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.text_field :description, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :preparation_time, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.number_field :preparation_time, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cooking_time, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.number_field :cooking_time, class: "mt-1 border-2 border-black block w-full rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :public, class: "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" %>
+    <%= form.check_box :public %>
+  </div>
+
+  <div class="bg-white hover:bg-gray-100 flex text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow" style="width: 65%;">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

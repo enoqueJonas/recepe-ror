@@ -1,0 +1,55 @@
+<main class="flex flex-col content-center items-center">
+<%= render 'shared/menu' %>
+  <div class="header">
+    <h1 class="text-4xl font-extrabold dark:text-white m-5"><%= @recipe.name %></h1>  
+  </div>
+
+<div class="flex w-5/6 justify-between">
+  <div class="flex flex-col gap-5 font-semibold">
+    <p>Preparation time: <%= @recipe.preparation_time %> minutes</p>
+    <p>Cooking time: <%= @recipe.cooking_time %> minutes</p>
+    <p><%= @recipe.description %></p>
+  </div>
+  <% if @recipe.user == current_user %>
+    <%= form_for @recipe, url: toggle_public_recipe_path(@recipe), method: :patch do |f| %>
+    <label class="relative inline-flex items-center mr-5">
+      <%= f.check_box :public, class: "sr-only peer", checked: @recipe.public %>
+      <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+      <%= f.submit "Public", class: "cursor-pointer" %>
+    </label>
+    <% end %> 
+  <% end %>  
+  </div>  
+  <% if @recipe.user == current_user %>
+    <a href = <%= new_recipe_recipe_food_path(@recipe.id) %> class="flex self-end mr-20">
+      <button class='bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow'>Add Ingredient</button>
+    </a>
+  <% end %>
+
+<hr class="w-4/6 rounded-sm h-1 my-6 bg-gray-500" />
+
+<table class='w-3/6 mt-5 text-sm text-left text-gray-500 dark:text-gray-400'>
+  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th scope="col" class="px-6 py-3">Name</th>
+      <th scope="col" class="px-6 py-3">Quantity</th>
+      <th scope="col" class="px-6 py-3">Value</th>
+      <th scope="col" class="px-6 py-3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_foods.includes(:recipe).each do |recipe_food| %>
+      <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+        <td class="px-6 py-4"><%= recipe_food.food.name %></td>
+        <td class="px-6 py-4"><%= recipe_food.quantity %></td>
+        <td class="px-6 py-4"><%= recipe_food.food.price %></td>
+        <td class="px-6 py-4">
+          <p>Edit</p>
+          <p>Delete</p>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</main>
